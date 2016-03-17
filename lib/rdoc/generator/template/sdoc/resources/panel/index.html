@@ -5,6 +5,9 @@
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
 <head>
 	<title>search index</title>
+
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
 	<link rel="stylesheet" href="../css/reset.css" type="text/css" media="screen" charset="utf-8" />
 	<link rel="stylesheet" href="../css/panel.css" type="text/css" media="screen" charset="utf-8" />
 	<script src="../js/search_index.js" type="text/javascript" charset="utf-8"></script>
@@ -45,8 +48,22 @@
                 panel.search(s, true);
             }
         }
+
+        $(document).bind('panel.open', function(){
+            top.window.hide_panel();
+        })
+
     })
 	</script>
+
+
+    <link href='https://fonts.googleapis.com/css?family=Roboto' rel='stylesheet' type='text/css'>
+    <style type="text/css">
+    .panel{
+        font-family: 'Roboto', sans-serif;
+    }
+    </style>
+
 </head>
 <body>
     <div class="panel panel_tree" id="panel">

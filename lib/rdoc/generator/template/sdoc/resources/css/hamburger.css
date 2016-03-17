@@ -1,0 +1,150 @@
+/** Mobile and tables *******************************************/
+body, html{
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+}
+
+iframe {
+  width:100%;
+  height:100% ;
+  border:none ;
+}
+
+@media (min-width: 801px) {
+  .hamburger{
+    position: absolute;
+    z-index: 10;
+    top: 0rem;
+    left: 0rem;
+    background-color: #789;
+    /*opacity: 0.7;*/
+    padding: 0.5rem 1rem;
+    color: #fff;
+    cursor: pointer;
+  }
+
+  .hamburger-closed:before {
+    content:'\2630'; /* This will render the ☰ */
+  }
+
+  .hamburger-open{
+    left: 17.5rem;
+  }
+
+  .hamburger-open:after{
+    display: inline-block;
+    content: "\00d7"; /* This will render the X */
+  }
+
+  .panel-overlay{
+    position: absolute;
+    z-index: 5;
+    top: 0;
+    left: 0;
+    width: 20rem;
+  }
+}
+
+@media (max-width: 800px) {
+
+  .container{
+    height: 50rem;
+    overflow: visible;
+  }
+
+  .container .panel-frame{
+    display: none;
+    height: 100%;
+    border: 0;
+  }
+
+  .container .main-frame{
+    width: 100%;
+    height: 100%;
+    border: 0;
+  }
+
+  .hamburger{
+    position: absolute;
+    z-index: 10;
+    top: 0rem;
+    left: 0rem;
+    background-color: #789;
+    /*opacity: 0.7;*/
+    padding: 0.5rem 1rem;
+    color: #fff;
+    cursor: pointer;
+  }
+
+  .hamburger-closed:before {
+    content:'\2630'; /* This will render the ☰ */
+  }
+
+  .hamburger-open{
+    left: 17.5rem;
+  }
+
+  .hamburger-open:after{
+    display: inline-block;
+    content: "\00d7"; /* This will render the X */
+  }
+
+  .panel-overlay{
+    position: absolute;
+    z-index: 5;
+    top: 0;
+    left: 0;
+    width: 20rem;
+  }
+}
+
+/** Mobile specific ************************************/
+
+@media (max-width: 410px){
+
+  .panel-overlay{
+    /*width: 80%;*/
+  }
+}
+
+/** Tablet specific ************************************/
+
+@media (min-width: 411px) and (max-width: 799px){
+
+  .panel-overlay{
+    /*width: 40%;*/
+  }
+}
+
+
+/** Desktop ************************************/
+
+@media (min-width: 800px) {
+  .container{
+    height: 50rem;
+    overflow: visible;
+  }
+  .container .panel-frame{
+    display: block;
+    float: left;
+    width: 20%;
+    height: 100%;
+    border: 0;
+  }
+  .container .main-frame{
+    float: left;
+    width: 79%;
+    height: 100%;
+    border: 0;
+  }
+  .container .full-width{
+    width: 100%;
+  }
+  .hamburger-open{
+    left: 17.5%;
+  }
+  .hamburger-closed{
+    left: 0;
+  }
+}

@@ -4,10 +4,29 @@
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=<%= @options.charset %>" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
     <title><%= @options.title %></title>
+
+    <link rel="stylesheet" type="text/css" href="./css/hamburger.css">
 </head>
+
+<!--
 <frameset cols="300,*" frameborder="1" border="1" bordercolor="#999999" framespacing="1">
     <frame src="panel/index.html" title="Search" name="panel" />
-    <frame src="<%= index_path %>" name="docwin" />
+    <frame src="<%#= index_path %>" name="docwin" />
 </frameset>
+-->
+<body>
+  <div class='hamburger hamburger-closed'></div>
+  <div class='container'>
+    <iframe src="panel/index.html" class='panel-frame'></iframe>
+    <iframe src="files/ChangeLog.html" class='main-frame' id='ifm'></iframe>
+  </div>
+</body>
+
+
+<script src="./js/jquery-1.3.2.min.js" type="text/javascript" charset="utf-8"></script>
+<script type="text/javascript" charset="utf-8" src='./js/hamburger.js'></script>
+
 </html>

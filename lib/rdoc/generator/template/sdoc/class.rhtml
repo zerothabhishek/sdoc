@@ -5,7 +5,34 @@
 <head>
     <title><%= h klass.full_name %></title>
     <meta http-equiv="Content-Type" content="text/html; charset=<%= @options.charset %>" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <%= include_template '_head.rhtml', {:rel_prefix => rel_prefix} %>
+
+    <link href='https://fonts.googleapis.com/css?family=Roboto' rel='stylesheet' type='text/css'>
+    <link href='https://fonts.googleapis.com/css?family=Inconsolata' rel='stylesheet' type='text/css'>
+
+    <style type="text/css">
+        body{
+            font-family: 'Roboto', sans-serif;
+            font-size: 1rem;
+        }
+        pre, .description pre{
+          font-family: 'Inconsolata' ;
+          font-size: 1.1rem;
+          line-height: 2;
+          background-color: #f7f9fc;
+          border: 1px solid #e1e1e1;
+          padding: 1rem 1.5rem;
+          overflow-x: auto;
+        }
+
+        @media (max-width: 800px) {
+          #content{
+            margin: 0 1.5rem;
+          }
+        }
+    </style>
+
 </head>
 
 <body>     
