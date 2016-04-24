@@ -1,0 +1,47 @@
+#!/usr/bin/env ruby -KU
+require File.expand_path('../../lib/sdoc.rb', __FILE__)
+
+require 'fileutils'
+require 'jammit'
+
+begin
+
+  ## Generate the rdoc
+  ARGV.unshift('--format=sdoc')
+  r = RDoc::RDoc.new
+  r.document ARGV
+
+  ## Jammit
+  ## TODO: fix. Not working correct. using some kind of cache perhaps
+  ##      use the command line maybe
+  puts "-- Jammit ----------------"
+  out_dir = r.options.op_dir
+  config_path = File.join(out_dir, 'config', 'assets.yml')
+  Jammit::ASSET_ROOT = out_dir
+  Jammit.package!(
+    config_path: config_path, 
+    base_url: 'http://example.com')
+
+  ## Move the fonts
+  puts "--Fonts ------------------"
+  FileUtils.cp_r("#{out_dir}/fonts", "#{out_dir}/public/")
+
+rescue SystemExit
+  raise
+rescue Exception => e
+  if $DEBUG_RDOC then
+    $stderr.puts e.message
+    $stderr.puts "#{e.backtrace.join "\n\t"}"
+    $stderr.puts
+  elsif Interrupt === e then
+    $stderr.puts
+    $stderr.puts 'Interrupted'
+  else
+    $stderr.puts "uh-oh! RDoc had a problem:"
+    $stderr.puts e.message
+    $stderr.puts
+    $stderr.puts "run with --debug for full backtrace"
+  end
+
+  exit 1
+end

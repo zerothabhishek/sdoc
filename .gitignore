@@ -7,3 +7,5 @@ Gemfile.lock
 /.rake_tasks~
 /*.gem
 rails/
+src/
+out/

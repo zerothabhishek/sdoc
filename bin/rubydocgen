@@ -1,0 +1,12 @@
+#!/bin/bash
+
+# Run the sdoc command
+# Run the jammit command
+
+OUT_DIR="/Users/abhi/code/rdoc-proj/docs/zspring-3"
+SDOC_LOCAL="/Users/abhi/code/rdoc-proj/zerothabhishek-sdoc/bin/sdoc-local"
+
+$SDOC_LOCAL -a -o $OUT_DIR
+
+#cd $OUT_DIR
+#jammit --base-url 'http://example.com'

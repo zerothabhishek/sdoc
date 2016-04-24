@@ -1,0 +1,83 @@
+#!/bin/bash
+
+# This script runs from the root of the zdoc project
+#
+#   bin/zdoc source-path [output-path]
+#
+#   source-path: directory of the ruby source 
+#   output-path: optional: where the docs should be created
+#    when not present, docs are created in the docs/source-name folder
+#    where source-name is the last part of source-path
+#
+# eg -
+#   bin/zdoc ~/ruby-src/ruby-2.3.0
+#   generates docs in out/ruby-2.3.0
+#
+#   bin/zdoc ~/ruby-src/ruby-2.3.0 /tmp/abc
+#   generates docs in /tmp/abc
+#
+# Jammit must be pre-installed (gem install jammit)
+#
+
+if [ -z "$1" ]; then
+  echo "Arguments not supplied"
+  echo "Syntax: bin/zdoc source-path [output-path]"
+  exit 1
+fi
+
+
+# Should be the root of the zdoc project
+home=`pwd`
+
+# src: given path;
+# src_name: last part of the path
+src=$1
+src_name=$(basename "$src")
+
+# out0: the default output path;
+# $2: the given output directory
+# out: given output directory
+if [ -z "$2" ]; then
+  out0=$home/out
+  out="$out0/$src_name"
+else
+  out="$2"
+fi
+
+
+# the zdoc script
+zdoc=$home/bin/zdoc.rb
+
+echo "zdoc ---"
+$zdoc "$src" -o "$out"
+
+
+
+## Jammit:
+## jammit --base-url 'http://example.com'
+echo "Jammit ---"
+echo "cd $out; jammit -f --base-url 'http://example.com'"
+cd $out
+jammit -f --base-url 'http://example.com'
+cd $home
+echo
+
+## Cleanup:
+##  Copy assets to correct directories
+##  cp -r public/assets assets
+##  cp -r fonts public/fonts
+##  cp ChangeLog.html index.html
+##
+echo "Cleanup ---"
+echo "Copy public/assets to assets"
+cp -r $out/public/assets $out/assets
+
+echo "Copy fonts to public/fonts"
+cp -r $out/fonts $out/public/
+echo
+
+echo "Copy ChangeLog.html -> Index.html"
+mv $out/index.html $out/index-old.html
+xx_src=`ls $out/files/src`
+cp $out/files/src/$xx_src/ChangeLog.html $out/index.html
+

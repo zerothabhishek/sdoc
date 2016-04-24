@@ -8,6 +8,7 @@ else
   gem "json_pure", ">= 1.1.3"
 end
 require 'json'
+require 'jammit'
 
 require 'sdoc/github'
 require 'sdoc/templatable'
