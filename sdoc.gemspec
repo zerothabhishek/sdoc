@@ -24,6 +24,7 @@ Gem::Specification.new do |s|
   if defined?(JRUBY_VERSION)
     s.platform = Gem::Platform.new(['universal', 'java', nil])
     s.add_runtime_dependency("json_pure", "~> 1.7", ">= 1.7.7")
+    s.add_runtime_dependency("jammit", "~> 0.7")
   else
     s.add_runtime_dependency("json", "~> 1.7", ">= 1.7.7")
   end

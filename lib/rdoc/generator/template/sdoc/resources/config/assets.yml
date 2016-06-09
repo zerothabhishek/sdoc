@@ -8,18 +8,21 @@ javascripts:
   workspace:
     - js/jquery.min.js
     - js/bootstrap.min.js
-    - js/highlight.pack.js  # Syntax highlighting
+    - js/highlight.min.js   # Syntax highlighting
     - js/main.js            # toggleSource and highlight activation
     - js/hamburger.js
     - panel/tree.js
     - js/class_list.js
     - js/the.js
+    - js/search_index.js
+    - js/searcher.js
+    - js/searchdoc.js
 
 stylesheets:
   workspace:
     - css/font-roboto.css
     - css/font-inconsolata.css
     - css/main.css
-    - css/github.css
+    - css/default.min.css
     - css/bootstrap.min.css
     - css/the.css

@@ -199,6 +199,42 @@ class RDoc::Generator::SDoc
     $stderr.puts( *msg )
   end
 
+  def generate_class_tree1
+    
+    klasses   = @classes.select {|klass| !(RDoc::ClassModule === klass.parent) }
+
+    str = render_class_tree_for(klasses, {})
+    outfile = @outputdir + 'class_tree.html'
+    File.open(outfile, "w") { |f| f.write(str) }
+  end
+
+  def render_class_tree_for(klasses, visited)
+    klasses = klasses.select do |klass|
+      klass.with_documentation? && !visited[klass]
+    end
+    return "" if klasses.length == 0
+
+    ul =  "<ul>"
+    klasses.each do |klass|
+
+      visited[klass] = true
+      path = klass.path
+      name = klass.name
+
+      li = "<li>"
+      li +=  "<div><a href='#{path}'>#{name}</a></div>"
+
+      children = klass.classes_and_modules
+      sub_str = render_class_tree_for(children, visited)
+
+      li += sub_str
+      li += "</li>"
+
+      ul += li
+    end
+    ul
+  end
+
   ### Create class tree structure and write it as json
   def generate_class_tree
     debug_msg "Generating class tree"

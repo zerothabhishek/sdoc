@@ -1,4 +1,4 @@
-#!/usr/bin/env ruby -KU
+##!/usr/bin/ruby -KU
 require File.expand_path('../../lib/sdoc.rb', __FILE__)
 
 begin

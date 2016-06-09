@@ -27,6 +27,10 @@ li{
   font-family: Roboto;
   padding-top: 0.75rem;
 }
+nav .heading{
+  width: 80%;
+  float: left;
+}
 
 /** Sidebar  ****************************************/
 
@@ -38,7 +42,7 @@ li{
   position: fixed;
   z-index: 100;
   left: 0;
-  top: 0;
+  top: 3rem; /* Same as the header height */
   width: 250px;
   height: 100%;
   background-color: #fff;
@@ -47,12 +51,14 @@ li{
 
 #sidebar-wrapper .sidebar{
   margin-top: 1rem;
-  margin-left: 1rem;
+  margin-left: 0
 }
 
 #sidebar-wrapper #class-list{
   overflow-y: scroll;
   overflow-x: hidden;
+  margin-left: 1rem;
+  margin-top: 0.5rem;
   height: 40rem;
 }
 
@@ -66,15 +72,21 @@ li{
 }
 
 .sidebar-toggle{
-  position: fixed;
-  z-index: 200;
-  left: 6px;
-  top: 0.75rem; /* same as padding-top in .navbar .heading */
+  /*position: fixed;*/
+  /*z-index: 200;*/
+  /*left: 6px;*/
+  /*top: 0.75rem;*/ /* same as padding-top in .navbar .heading */
   /*background-color: transparent;*/
   opacity: 0.7;
   border: none;
-  padding: 0;
+  /*padding: 0;*/
   font-size: 1.5rem;
+
+  position: static;
+  width: 8%;
+  padding-top: 0.75rem;
+  padding-left: 0.5rem;
+  float: left;
 }
 
 .sidebar-right{ /* Unused */
@@ -88,8 +100,54 @@ li{
 #sidebar-wrapper .version-info li{
   margin-left: 0;
 }
+.sidebar .bottom-panel{
+  position: fixed;
+  bottom: 0;
+  background-color: #f8f8f8;
+  border-color: #e7e7e7;
+  width: 250px;
+  padding: 0.5rem 1rem;
+}
+
+/** Searchbox  ****************************************/
+
+#searchbox1{
+  position: absolute;
+  top: 3rem;
+  left: 30rem;
+  width: 20rem;
+  height: 10rem;
+}
+
+#search-button{
+  width: 5%;
+  float:left;
+  margin-top: 0.75rem;
+}
+
+#search-box{
+  margin-left: 1rem; /* Same as class-list margin-left */
+}
+
+#search-box input{
+  width: 13rem;
+  border: 1px solid #aaa;
+}
+
 
 /** Main  ****************************************/
+
+#main{
+  font-size: 0.9rem;
+  word-wrap: break-word; /* This prevents the horizontal scroll problem on mobiel */
+}
+
+#main h3{
+  font-size: 1.1rem;
+}
+#main #label-ChangeLog{
+  display: none;
+}
 
 #main .row{
   margin: 0;
@@ -146,7 +204,7 @@ pre, .description pre{
 
 .description code{
   font-family: 'Inconsolata' ;
-  white-space: nowrap;
+  /*white-space: nowrap;*/ /* To allow line breaks */
 }
 
 .sectiontitle{

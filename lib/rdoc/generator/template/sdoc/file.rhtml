@@ -1,4 +1,4 @@
-      <!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
 
@@ -17,18 +17,12 @@
 
   <link rel="stylesheet" href="/public/assets/workspace.css" type="text/css" media="screen" />
 
-  <!-- Font styles -->
-<!--
-   <link href='https://fonts.googleapis.com/css?family=Roboto' rel='stylesheet' type='text/css'>
-  <link href='https://fonts.googleapis.com/css?family=Inconsolata' rel='stylesheet' type='text/css'>
--->
-
 </head>
 <body>
 
   <div class='overall-wrapper'>
 
-    <nav class='navbar navbar-default'>
+    <nav class='navbar navbar-default navbar-fixed-top'>
       <div class='sidebar-toggle' id='menu-toggle'>
         <span class="glyphicon glyphicon-menu-hamburger" aria-hidden="true"></span>
       </div>
@@ -41,23 +35,8 @@
     <div id="sidebar-wrapper">
       <div class='sidebar'>
 
-        <div class='version-info'>
-          Version:
-          <div class="btn-group">
-            <button type="button" class="btn btn-default btn-sm dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-              2.3.0 <span class="caret"></span>
-            </button>
-            <ul class="dropdown-menu">
-              <li><a href="#">2.2.4</a></li>
-              <li><a href="#">2.1.9</a></li>
-              <li><a href="#">2.0.0</a></li>
-              <li role="separator" class="divider"></li>
-              <li><a href="#">Edge</a></li>
-            </ul>
-          </div>
-        </div>
-
         <div id='search-box'>
+          <input type='text'>
         </div>
 
         <ul id='class-list'>
@@ -65,6 +44,11 @@
 
         <div id='search-results'>
         </div>
+
+        <div class='bottom-panel'>
+          <!-- Versions and about -->
+        </div>
+
       </div>
     </div> <!-- /#sidebar-wrapper -->
 

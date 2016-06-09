@@ -49,7 +49,7 @@ fi
 zdoc=$home/bin/zdoc.rb
 
 echo "zdoc ---"
-$zdoc "$src" -o "$out"
+ruby $zdoc "$src" -o "$out"
 
 
 
