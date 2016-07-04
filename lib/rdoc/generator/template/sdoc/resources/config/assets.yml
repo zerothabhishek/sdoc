@@ -17,6 +17,11 @@ javascripts:
     - js/search_index.js
     - js/searcher.js
     - js/searchdoc.js
+  search:
+    - js/search_index.js
+    - js/searcher.js
+    - js/searchdoc.js
+    - js/search_it.js
 
 stylesheets:
   workspace:

@@ -21,6 +21,36 @@
 <body>
   <div class='overall-wrapper'>
 
+    <div class='sidebar-toggle' id='menu-toggle'>
+      <span class="glyphicon glyphicon-menu-hamburger" aria-hidden="true"></span>
+    </div>
+
+    <nav class='navbar navbar-default navbar-fixed-top'>
+      <div class='heading'>
+        Ruby Documentation
+      </div>
+    </nav>
+
+    <div id="sidebar-wrapper">
+      <div class='sidebar'>
+
+        <div id='search-box'>
+          <input type='text'>
+        </div>
+
+        <ul id='class-list'>
+        </ul>
+
+        <div id='search-results'>
+        </div>
+
+        <div class='bottom-panel'>
+          <!-- Versions and about -->
+        </div>
+
+      </div>
+    </div> <!-- /#sidebar-wrapper -->
+
     <div id='main'>
       <div class='row'>
         <div class='col-xs-12 col-sm-12 col-md-12 col-lg-12'>
@@ -36,14 +66,7 @@
 
           <div id="bodyContent">
             <div id="content">
-              <div class="description">
-                
-
-
-                <div id="search-box">
-                  <input type='text'>
-                </div>
-                
+              <div class="description">   
               </div>
             </div>
           </div>
@@ -54,10 +77,8 @@
 
   </div> <!-- overall-wrapper -->
 
-  <script src="/assets/workspace.js" type="text/javascript" charset="utf-8"></script>
-  <script type="text/javascript">
-    close_sidebar();
-  </script>
+  <script src="/public/assets/workspace.js" type="text/javascript" charset="utf-8"></script>
+  <script defer src="/public/assets/search.js" type="text/javascript" charset="utf-8" onload="activate_search()"></script>
 
 </body>
 </html>
